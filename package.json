@@ -1,0 +1,8 @@
+{
+  "name": "testdevforaposition",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "cd server && npm run start & cd client && npm run start"
+  }
+}

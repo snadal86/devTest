@@ -1,5 +1,9 @@
 const router = require('express').Router();
 
+router.get('/', function(req, res, next) {
+	res.render('index', { title: 'Substitute API working' });
+ });
+
 /**
  * GET /:id - get an substitute
  * @params {id} - substitute id
@@ -58,3 +62,5 @@ router.post('/', async (req, res) => {
 
 //TODO: update substitute using router.PUT
 //TODO: delete substitute using router.DELETE
+
+module.exports = router

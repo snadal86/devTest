@@ -1,5 +1,12 @@
 const router = require('express').Router();
 
+// let database = require('../database/DB.json');
+
+router.get('/', function(req, res, next) {
+	res.render('index', { title: 'Expedient API working' });
+ });
+ 
+
 /**
  * GET /:id - get an expedient
  * @params {id} - expedient id
@@ -10,7 +17,7 @@ const router = require('express').Router();
 router.get('/:id', async (req, res) => {
 	try {
 		//search expedient by id in database
-		
+		// console.log(database)
 		//if not found, throw error
 
 	} catch (err) {
@@ -58,3 +65,5 @@ router.post('/', async (req, res) => {
 
 //TODO: update expedient using router.PUT
 //TODO: delete expedient using router.DELETE
+
+module.exports = router

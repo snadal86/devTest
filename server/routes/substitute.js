@@ -1,8 +1,31 @@
 const router = require('express').Router();
+const fs = require('fs');
 
-router.get('/', function(req, res, next) {
-	res.render('index', { title: 'Substitute API working' });
- });
+const data = require('../../database/DB.json');
+
+/**
+ * GET / - get all substitutes
+ * @returns {substitute[]} - array of substitutes
+ * @returns {error} - error message
+ * @throws {NotFoundError} - if substitute not found
+ */
+ router.get('/', async (req, res) => {
+	try {
+		//search all substitutes in database
+		const substitutes = data.substitutes;
+		//return substitutes
+		if (substitutes) {
+			res.status(200).send(substitutes);
+		} else {
+			throw new Error('substitutes not found');
+		}
+		//if not found, throw error		
+
+	} catch (err) {
+		// console.error(`Error getting all substitutes: ${err}`);
+		res.status(500).send(`Error getting all substitutes: ${err}`);
+	}
+})
 
 /**
  * GET /:id - get an substitute
@@ -12,32 +35,19 @@ router.get('/', function(req, res, next) {
  * @returns {error} - if error
  */
 router.get('/:id', async (req, res) => {
+	// console.log('Searching substitute with id: ' + req.params.id);
 	try {
 		//search substitute by id in database
-		
-		//if not found, throw error
-
+		const substitute = data.substitutes.find(substitute => substitute.id == req.params.id);
+		//return substitute
+		if (substitute) {
+			res.status(200).send(substitute);
+		} else {
+			throw new Error('substitute not found');
+		}	
 	} catch (err) {
-		console.error(`Error getting substitute: ${err}`);
-		res.status(500).send(`Error getting substitute: ${err}`);
-	}
-})
-
-/**
- * GET / - get all substitutes
- * @returns {substitute[]} - array of substitutes
- * @returns {error} - error message
- * @throws {NotFoundError} - if substitute not found
- */
-router.get('/allSubstitutes', async (req, res) => {
-	try {
-		//search all substitutes in database
-
-		//if not found, throw error		
-
-	} catch (err) {
-		console.error(`Error getting all substitutes: ${err}`);
-		res.status(500).send(`Error getting all substitutes: ${err}`);
+		// console.error(`Error getting substitute: ${err}`);
+		res.status(500).send(`${err}`);
 	}
 })
 

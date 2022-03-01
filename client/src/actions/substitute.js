@@ -8,7 +8,7 @@ import {
 
 export const getSubstitutes = () => async (dispatch) => {
 	try {
-		const res = await axios.get('http://localhost:5000/api/substitutes');
+		const res = await axios.get('http://localhost:5000/substitute');
 		// console.log(res.data)
 		dispatch({
 			type: GET_SUBSTITUTES,
@@ -22,7 +22,7 @@ export const getSubstitutes = () => async (dispatch) => {
 
 export const getSubstitute = (id) => async (dispatch) => {
 	try {
-		const res = await axios.get(`http://localhost:5000/api/substitute/${id}`);
+		const res = await axios.get(`http://localhost:5000/substitute/${id}`);
 		// console.log(res.data)
 		dispatch({
 			type: GET_SUBSTITUTE,

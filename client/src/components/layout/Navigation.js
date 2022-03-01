@@ -120,7 +120,7 @@ const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
 						height='30'
 						className='d-inline-block align-top'
 					/>
-					{' '}Vilobí Admin
+					{' '}Dev Test
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>

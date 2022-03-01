@@ -6,10 +6,10 @@ import {
 } from "./_types";
 
 
-export const getExpedientes = () => async (dispatch) => {
+export const getExpedients = () => async (dispatch) => {
 	try {
-		const res = await axios.get('http://localhost:5000/api/expedientes');
-		// console.log(res.data)
+		const res = await axios.get('http://localhost:5000/expedient');
+		console.log(res.data)
 		dispatch({
 			type: GET_EXPEDIENTES,
 			payload: res.data,
@@ -20,10 +20,10 @@ export const getExpedientes = () => async (dispatch) => {
 	}
 };
 
-export const getExpediente = (id) => async (dispatch) => {
+export const getExpedient = (id) => async (dispatch) => {
 	try {
-		const res = await axios.get(`http://localhost:5000/api/expedientes/${id}`);
-		// console.log(res.data)
+		const res = await axios.get(`http://localhost:5000/expedient/${id}`);
+		console.log(res.data)
 		dispatch({
 			type: GET_EXPEDIENTES,
 			payload: res.data,

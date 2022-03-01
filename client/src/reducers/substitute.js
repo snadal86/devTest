@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
 		case GET_SUBSTITUTES:
 			return {
 				...state,
-				substitute: payload,
+				substitutes: payload,
 				loading: false,
 			};
 		case GET_SUBSTITUTE:

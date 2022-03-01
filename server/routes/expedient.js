@@ -15,7 +15,8 @@ const data = require('../../database/DB.json');
 		const expedients = data.expedients;
 		//return expedients
 		if (expedients) {
-			res.status(200).send(expedients);
+			// console.log(expedients)
+			res.json({expedients});
 		} else {
 			throw new Error('Expedients not found');
 		}
@@ -41,7 +42,7 @@ router.get('/:id', async (req, res) => {
 		const expedient = data.expedients.find(expedient => expedient.id == req.params.id);
 		//return expedient
 		if (expedient) {
-			res.status(200).send(expedient);
+			res.json({expedient});
 		} else {
 			throw new Error('Expedient not found');
 		}	

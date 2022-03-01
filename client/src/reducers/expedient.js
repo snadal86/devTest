@@ -6,26 +6,26 @@ import {
 } from "../actions/_types";
 
 const initialState = {
-	expedientes: [],
-	expediente:{},
+	expedients: [],
+	expedient:{},
 	loading: true,
 	error: {},
 };
 
 export default function (state = initialState, action) {
 	const { type, payload } = action;
-
+	// console.log(payload)
 	switch (type) {
 		case GET_EXPEDIENTES:
 			return {
 				...state,
-				expedientes: payload,
+				expedients: payload,
 				loading: false,
 			};
 		case GET_EXPEDIENTE:
 			return {
 				...state,
-				expediente: payload,
+				expedient: payload,
 				loading: false,
 			};
 		case ERROR_EXPEDIENTE:

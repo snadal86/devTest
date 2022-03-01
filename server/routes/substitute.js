@@ -15,7 +15,7 @@ const data = require('../../database/DB.json');
 		const substitutes = data.substitutes;
 		//return substitutes
 		if (substitutes) {
-			res.status(200).send(substitutes);
+			res.json({substitutes});
 		} else {
 			throw new Error('substitutes not found');
 		}
